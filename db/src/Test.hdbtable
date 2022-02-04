@@ -1,0 +1,9 @@
+COLUMN TABLE Project_Trans
+(client_key VARCHAR (10),
+project_key VARCHAR (10),
+period VARCHAR (10),
+year VARCHAR (10),
+opening_wip BIGINT,
+
+
+closing_wip BIGINT)

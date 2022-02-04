@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_Test_WIP" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_Test_WIP"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="PROJECT_TRANS">
+    <resourceUri>PROJECT_TRANS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="CLIENT_KEY"/>
+      <viewAttribute id="PROJECT_KEY"/>
+      <viewAttribute id="PERIOD"/>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="OPENING_WIP"/>
+      <viewAttribute id="CLOSING_WIP"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="PROJECT_TRANS"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="CLIENT_KEY" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLIENT_KEY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CLIENT_KEY"/>
+    </attribute>
+    <attribute id="PROJECT_KEY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PROJECT_KEY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PROJECT_KEY"/>
+    </attribute>
+    <attribute id="PERIOD" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PERIOD"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PERIOD"/>
+    </attribute>
+    <attribute id="YEAR" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping columnObjectName="Projection_1" columnName="YEAR"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="OPENING_WIP" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="OPENING_WIP"/>
+      <measureMapping columnObjectName="Projection_1" columnName="OPENING_WIP"/>
+    </measure>
+    <measure id="CLOSING_WIP" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CLOSING_WIP"/>
+      <measureMapping columnObjectName="Projection_1" columnName="CLOSING_WIP"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="100" y="105"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="107" y="182"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
